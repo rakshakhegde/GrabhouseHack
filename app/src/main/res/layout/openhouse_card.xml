@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginBottom="8dp"
+	android:clickable="true"
+	android:foreground="?android:attr/selectableItemBackground">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<com.facebook.drawee.view.SimpleDraweeView
+			android:id="@+id/image_openhouse"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="8dp"
+			android:background="@color/lt_gray"
+			app:placeholderImage="@drawable/grabhouse_placeholder"
+			app:roundBottomLeft="false"
+			app:roundBottomRight="false"
+			app:roundTopLeft="true"
+			app:roundTopRight="true"
+			app:roundedCornerRadius="2dp"
+			app:viewAspectRatio="1.618"/>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="8dp"
+			android:layout_marginLeft="8dp"
+			android:layout_marginRight="8dp"
+			android:orientation="vertical">
+
+			<TextView
+				android:id="@+id/tv_title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="4dp"
+				android:maxLines="1"
+				android:textColor="@android:color/holo_red_dark"
+				android:textSize="18sp"
+				tools:text="The Bungalow"/>
+
+			<TextView
+				android:id="@+id/tv_address"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="4dp"
+				android:maxLines="1"
+				android:textSize="14sp"
+				android:textStyle="bold"
+				tools:text="Whitefield, Bangalore"/>
+
+			<TextView
+				android:id="@+id/tv_cost"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="4dp"
+				android:textSize="14sp"
+				tools:text="₹ 5L"/>
+
+			<ImageView
+				android:id="@+id/image_contact"
+				android:layout_width="26dp"
+				android:layout_height="26dp"
+				android:padding="4dp"
+				android:src="@drawable/call"/>
+		</LinearLayout>
+	</LinearLayout>
+
+</android.support.v7.widget.CardView>

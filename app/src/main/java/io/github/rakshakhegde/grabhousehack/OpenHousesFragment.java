@@ -19,6 +19,7 @@ import com.drivemode.android.typeface.TypefaceHelper;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.util.List;
@@ -42,20 +43,20 @@ public class OpenHousesFragment extends Fragment {
 	}
 
 	private void supplyDataToRecyclerView(final RecyclerView recyclerView) {
-		new ParseQuery<OpenHousePOJO>(OpenHousePOJO.PARSE_CLASS)
+		new ParseQuery<ParseObject>("House")
 				.orderByAscending("date")
-				.findInBackground(new FindCallback<OpenHousePOJO>() {
+				.findInBackground(new FindCallback<ParseObject>() {
 					@Override
-					public void done(List<OpenHousePOJO> openHousePOJOs, ParseException e) {
+					public void done(List<ParseObject> openHousePOJOs, ParseException e) {
 						recyclerView.setAdapter(new OpenHousesRecyclerViewAdapter(openHousePOJOs));
 					}
 				});
 	}
 
 	public class OpenHousesRecyclerViewAdapter extends RecyclerView.Adapter<OpenHousesViewHolder> {
-		private List<OpenHousePOJO> openHousePOJOs;
+		private List<ParseObject> openHousePOJOs;
 
-		public OpenHousesRecyclerViewAdapter(List<OpenHousePOJO> openHousePOJOs) {
+		public OpenHousesRecyclerViewAdapter(List<ParseObject> openHousePOJOs) {
 			this.openHousePOJOs = openHousePOJOs;
 		}
 
@@ -67,7 +68,7 @@ public class OpenHousesFragment extends Fragment {
 
 		@Override
 		public void onBindViewHolder(OpenHousesViewHolder holder, int position) {
-			final OpenHousePOJO openHousePOJO = openHousePOJOs.get(position);
+			final ParseObject openHousePOJO = openHousePOJOs.get(position);
 			// Set Image
 			Uri uri = Uri.parse(openHousePOJO.getString("image"));
 			holder.openHouse.setImageURI(uri);
